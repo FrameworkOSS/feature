@@ -1,7 +1,8 @@
 package feature
 
 import (
-	"github.com/FrameworkOSS/portal/features/wires/wire"
+	"github.com/FrameworkOSS/event"
+	"github.com/FrameworkOSS/feature_wires/wire"
 )
 
 func NewFeatureBinding(f Feature) (fb *FeatureBinding) {
@@ -15,6 +16,19 @@ func NewFeatureBinding(f Feature) (fb *FeatureBinding) {
 			SetDescription(f.Description()).
 			SetVersion(f.Version())
 	}
+	return
+}
+
+func NewEventFeatureBinding(f string, features ...Feature) (e *event.Event) {
+	e = event.NewEvent().
+		SetID("bind").
+		SetProducer(f)
+
+	for i := 0; i < len(features); i++ {
+		e.AddOffsetNext()
+		e.AddDataNext(NewFeatureBinding(features[i]).Bytes())
+	}
+
 	return
 }
 
@@ -86,10 +100,10 @@ func (fb *FeatureBinding) Open() error {
 func (fb *FeatureBinding) Close() ([]error, bool) {
 	return nil, false
 }
-func (fb *FeatureBinding) Input(e *Event) error {
+func (fb *FeatureBinding) Input(e *event.Event) error {
 	return fb.binding.Input(e)
 }
-func (fb *FeatureBinding) Output() (*Event, error) {
+func (fb *FeatureBinding) Output() (*event.Event, error) {
 	if fb.binding == nil {
 		return nil, nil
 	}

@@ -1,5 +1,9 @@
 package feature
 
+import (
+	"github.com/FrameworkOSS/event"
+)
+
 // Feature is a way to represent a modular logical component which can be inserted into, or even unloaded from, the portal framework at runtime.
 type Feature interface {
 	API() int            //The major version number of the portal API this feature was built against. Used to prevent loading incompatible features or to translate event I/O between versions at runtime.
@@ -11,8 +15,8 @@ type Feature interface {
 
 	Open() (err error)                 //So that it can register commands with their arguments and help texts, setup event listeners, log into any services, communicate with other features, etc. If an error is returned, Close is called immediately after.
 	Close() (errs []error, retry bool) //Should gracefully close everything possible before returning a combined error trace if anything failed, and if a retry is requested.
-	Input(*Event) error                //To tell this feature about any events which are directed to it, like callbacks to its queries or portal broadcasts. If an error is returned, Close is called immediately after.
-	Output() (*Event, error)           //To ask this feature if it has an event to distribute via the portal, like callbacks to queries from other features or broadcasts to send out. If an error is returned, an event may still be distributed but Close will be called immediately after.
+	Input(*event.Event) error          //To tell this feature about any events which are directed to it, like callbacks to its queries or portal broadcasts. If an error is returned, Close is called immediately after.
+	Output() (*event.Event, error)     //To ask this feature if it has an event to distribute via the portal, like callbacks to queries from other features or broadcasts to send out. If an error is returned, an event may still be distributed but Close will be called immediately after.
 }
 
 // FeatureBinding maintains a transport between a physical and virtual feature.
