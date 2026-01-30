@@ -21,7 +21,7 @@ func NewFeatureBinding(f Feature) (fb *FeatureBinding) {
 
 func NewEventFeatureBinding(f string, features ...Feature) (e *event.Event) {
 	e = event.NewEvent().
-		SetID("bind").
+		SetID(event.EVENT_BIND).
 		SetProducer(f)
 
 	for i := 0; i < len(features); i++ {
