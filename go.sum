@@ -1,5 +1,5 @@
-github.com/FrameworkOSS/event v0.0.0-20260130024838-8824fb27471e h1:Eo1+wpFTECgTyES7dpu7vLdiAVqjFxYbSo/Cem4oLH0=
-github.com/FrameworkOSS/event v0.0.0-20260130024838-8824fb27471e/go.mod h1:LmifcrjeAH0NW97P7w3BJCxEafbMA6ppANpcWJFQC5w=
+github.com/FrameworkOSS/event v0.0.0-20260130025636-4bd18cbcf4e7 h1:6HKXxHFU31kLZkSyGRpqYV7c4OrjrqEClTNJgWdnNYk=
+github.com/FrameworkOSS/event v0.0.0-20260130025636-4bd18cbcf4e7/go.mod h1:LmifcrjeAH0NW97P7w3BJCxEafbMA6ppANpcWJFQC5w=
 github.com/FrameworkOSS/feature_wires v0.0.0-20260130024520-038048c88f6d h1:ZmQb2lbaAp9gc8XtwT3NctoWq8mRssEthLn63uTw8tI=
 github.com/FrameworkOSS/feature_wires v0.0.0-20260130024520-038048c88f6d/go.mod h1:Y12HTdYkOZpI669AJlfk7XzEQRmjJdM4dH/AkB/xZGI=
 github.com/JoshuaDoes/crunchio v0.0.4 h1:gHMvTT0rHCITPjhfxZ0huykyAUBnP94xzExyhnHcBCM=
