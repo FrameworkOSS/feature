@@ -2,7 +2,7 @@ package feature
 
 import (
 	"github.com/FrameworkOSS/event"
-	"github.com/FrameworkOSS/feature_wires/wire"
+	"github.com/FrameworkOSS/wire"
 )
 
 func NewFeatureBinding(f Feature) (fb *FeatureBinding) {
